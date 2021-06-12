@@ -3,7 +3,8 @@ Comandos basicos de Git
 git ini           para empezar a grabar
 git add<file>     para decir que archivos necesitan seguimiento
 git status        señala el estado de los archivos 
-git commit        graba los archivos
+git commit -a       graba los archivos
+git commit -m "Texto explicativo"  grava los cambios sin entrar en la consola de git
 git push          
 git pull
 git clone         copia los archivos desde el repositorio al pc actual. 
