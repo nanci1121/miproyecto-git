@@ -1,0 +1,12 @@
+Comandos basicos de Git
+
+git ini
+git add<file>
+git status
+git commit
+git push
+git pull
+git clone
+
+working directory    ==>    staging area     ==>      repository
+                  git add                 git commit
