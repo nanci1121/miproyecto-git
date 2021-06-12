@@ -1,12 +1,13 @@
 Comandos basicos de Git
 
-git ini
-git add<file>
-git status
-git commit
-git push
+git ini           para empezar a grabar
+git add<file>     para decir que archivos necesitan seguimiento
+git status        señala el estado de los archivos 
+git commit        graba los archivos
+git push          
 git pull
-git clone
+git clone         copia los archivos desde el repositorio al pc actual. 
+git diff <file>    para ver las diferecias del archivo
 
 working directory    ==>    staging area     ==>      repository
                   git add                 git commit
