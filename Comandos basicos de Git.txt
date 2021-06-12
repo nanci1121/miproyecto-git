@@ -10,3 +10,4 @@ git clone
 
 working directory    ==>    staging area     ==>      repository
                   git add                 git commit
+para salir de la consola de git hay que apretar tecla "esc" ":" "q" "w"
