@@ -1,22 +1,182 @@
-Comandos basicos de Git
+# Comandos Básicos de Git - Explicación Detallada
 
-git ini           para empezar a grabar
-git add<file>     para decir que archivos necesitan seguimiento
-git status        señala el estado de los archivos 
-git commit -a       graba los archivos
-git commit -am "Texto explicativo"  grava los cambios sin entrar en la consola de git
-git push          sube los archivos al repositorio
-git pull          baja los archivos del repositorio
-git clone         copia los archivos desde el repositorio al pc actual. 
-git diff <file>    para ver las diferecias del archivo
+## Comandos Fundamentales
 
+### `git init`
+**Explicación**: Inicializa un nuevo repositorio de Git en el directorio actual.
+```bash
+# Ejemplo:
+mkdir mi-proyecto
+cd mi-proyecto
+git init
+# Crea un repositorio Git vacío en la carpeta mi-proyecto
+```
 
+### `git add <file>`
+**Explicación**: Añade archivos al área de staging (preparación).
+```bash
+# Ejemplos:
+git add archivo.txt          # Añade un archivo específico
+git add .                    # Añade TODOS los archivos modificados/nuevos
+git add *.js                 # Añade todos los archivos .js
+git add src/                 # Añade toda la carpeta src
+```
 
-working directory    ==>    staging area     ==>      repository
-                  git add                 git commit
-para salir de la consola de git hay que apretar tecla "esc" ":" "w" "q"
+### `git status`
+**Explicación**: Muestra el estado de los archivos en el working directory.
+```bash
+# Ejemplo:
+git status
+# Muestra:
+# - Archivos modificados (modified)
+# - Archivos en staging (ready to commit)
+# - Archivos no trackeados (untracked)
+```
 
+### `git commit`
+**Explicación**: Guarda los cambios del staging area en el repositorio.
+```bash
+# Ejemplos:
+git commit -m "Mensaje descriptivo"    # Commit con mensaje directo
+git commit -a -m "Mensaje"             # -a: añade automáticamente archivos trackeados modificados
+git commit                             # Abre editor para escribir mensaje largo
+```
 
-git branch      enseña las ramas que existen
-git branch login   crea la rama login
-gir checkout login cambia hacia la rama login
+### `git push`
+**Explicación**: Sube commits locales al repositorio remoto.
+```bash
+# Ejemplos:
+git push origin main          # Sube a la rama main en origin
+git push -u origin main      # -u: establece upstream para futuros push
+git push --all               # Sube todas las ramas
+```
+
+### `git pull`
+**Explicación**: Descarga cambios del repositorio remoto y los fusiona.
+```bash
+# Ejemplos:
+git pull origin main         # Descarga y fusiona cambios de main
+git pull --rebase           # Aplica tus commits sobre los nuevos cambios
+```
+
+### `git clone`
+**Explicación**: Copia un repositorio remoto a local.
+```bash
+# Ejemplos:
+git clone https://github.com/usuario/repo.git
+git clone https://github.com/usuario/repo.git mi-carpeta  # Clona en carpeta específica
+```
+
+### `git diff`
+**Explicación**: Muestra diferencias entre archivos.
+```bash
+# Ejemplos:
+git diff                    # Muestra cambios no staged
+git diff --staged          # Muestra cambios staged
+git diff archivo.txt       # Cambios en archivo específico
+git diff commit1 commit2   # Diferencias entre dos commits
+```
+
+## Comandos de Ramas (Branches)
+
+### `git branch`
+**Explicación**: Gestiona ramas del repositorio.
+```bash
+# Ejemplos:
+git branch                  # Lista todas las ramas
+git branch login           # Crea rama 'login'
+git branch -d login        # Elimina rama 'login'
+git branch -m nuevo-nombre # Renombra rama actual
+```
+
+### `git checkout`
+**Explicación**: Cambia entre ramas o restaura archivos.
+```bash
+# Ejemplos:
+git checkout main          # Cambia a rama main
+git checkout -b nueva-rama # Crea y cambia a nueva rama
+git checkout archivo.txt   # Descarta cambios en archivo
+```
+
+### `git merge`
+**Explicación**: Fusiona ramas (¡FALTABA ESTE IMPORTANTE!)
+```bash
+# Ejemplos:
+git checkout main
+git merge login           # Fusiona rama login en main
+git merge --no-ff login   # Fusiona siempre creando commit de merge
+```
+
+## Comandos Adicionales Importantes
+
+### `git log`
+**Explicación**: Muestra historial de commits.
+```bash
+# Ejemplos:
+git log                   # Historial completo
+git log --oneline         # Historial resumido
+git log -5                # Últimos 5 commits
+git log --graph           # Muestra gráfico de ramas
+```
+
+### `git remote`
+**Explicación**: Gestiona repositorios remotos.
+```bash
+# Ejemplos:
+git remote -v             # Muestra repositorios remotos
+git remote add origin URL # Añade repositorio remoto
+git remote remove origin  # Elimina repositorio remoto
+```
+
+### `git fetch`
+**Explicación**: Descarga cambios del remoto sin fusionar.
+```bash
+# Ejemplo:
+git fetch origin          # Descarga cambios pero no los aplica
+```
+
+### `git reset`
+**Explicación**: Deshace commits o quita archivos del staging.
+```bash
+# Ejemplos:
+git reset HEAD~1          # Elimina último commit (mantiene cambios)
+git reset --hard HEAD~1   # Elimina último commit y cambios
+git reset archivo.txt     # Quita archivo del staging
+```
+
+### `git stash`
+**Explicación**: Guarda cambios temporalmente.
+```bash
+# Ejemplos:
+git stash                 # Guarda cambios temporalmente
+git stash list           # Lista stashes
+git stash pop            # Recupera último stash
+git stash apply          # Aplica stash sin eliminarlo
+```
+
+## Flujo de Trabajo Visualizado
+
+```
+Working Directory    ==>    Staging Area    ==>    Repository
+(Archivos locales)         (Preparados)          (Commits guardados)
+       ↓                        ↓                       ↓
+  git add <file>          git commit            git push
+  git status              git log               git pull
+```
+
+## Consejos Adicionales
+
+1. **Para salir de editores de Git**: 
+   - Vim: `ESC` + `:wq` + `ENTER`
+   - Nano: `Ctrl + X` + `Y` + `ENTER`
+
+2. **Configuración inicial importante**:
+   ```bash
+   git config --global user.name "Tu Nombre"
+   git config --global user.email "tu@email.com"
+   git config --global init.defaultBranch main
+   ```
+
+3. **Archivo .gitignore**: Crea este archivo para especificar qué archivos NO deben ser trackeados por Git.
+
+¡Estos comandos cubren la mayoría de las operaciones básicas de Git que necesitarás en el día a día!
