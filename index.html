@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Proyecto Git</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Añadimos la librería marked -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Estilos adicionales para el contenido del README */
+        #readme-content {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: left;
+            max-height: 60vh;            /* Altura máxima con barra de desplazamiento */
+            overflow-y: auto;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
 
-    <H1> Pruebas con GIT</H1>
+    <h1>Proyecto de Demostración de Git</h1>
     
+    <button id="readme-btn">Mostrar/Ocultar Contenido del README.md</button>
+    
+    <!-- Cambiamos <pre> por <div> para que pueda interpretar el HTML generado -->
+    <div id="readme-content" style="display: none;"></div>
+
+    <script src="js/app.js" defer></script>
 </body>
 </html>

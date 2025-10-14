@@ -1,0 +1,68 @@
+body { font-family: sans-serif; text-align: center; margin-top: 50px; background-color: #f4f4f9; }
+h1 { color: #333; }
+button { padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; background-color: #007bff; color: white; border-radius: 5px; }
+p { margin-top: 20px; font-size: 18px; color: #555; height: 40px; }
+
+/* Estilos para el contenido Markdown renderizado */
+#readme-content h2 {
+    color: #0056b3; /* Un azul más oscuro para los títulos principales */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    margin-top: 24px;
+}
+
+#readme-content h3 {
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+#readme-content h4 {
+    color: #444;
+    margin-top: 18px;
+}
+
+#readme-content code {
+    background-color: rgba(27,31,35,.05);
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+#readme-content pre {
+    background-color: #2d2d2d;
+    color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+#readme-content pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+#readme-content ul, #readme-content ol {
+    text-align: left;
+    margin-left: 20px;
+}
+
+#readme-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#readme-content a:hover {
+    text-decoration: underline;
+}
+
+#readme-content blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: .25em solid #dfe2e5;
+    margin-left: 0;
+}
